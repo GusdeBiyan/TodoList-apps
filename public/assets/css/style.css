@@ -1,0 +1,166 @@
+body {
+    font-family: 'Poppins', sans-serif;
+
+
+}
+
+.header {
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    /* Center horizontally */
+    align-items: center;
+}
+
+.header .logo img {
+    width: 250.8px;
+    height: 60px;
+    gap: 0px;
+    opacity: 0px;
+}
+
+.user-details {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 16px;
+    flex-wrap: wrap;
+
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    gap: 10px;
+    /* Allow items to wrap to the next line */
+}
+
+.form-group label {
+    margin-bottom: 5px;
+
+}
+
+.form-group input {
+    width: 100%;
+    min-width: 250px;
+    height: 46px;
+    padding: 10px;
+    border: 1px solid #E4E6EF;
+    border-radius: 4px;
+    font-weight: 400;
+
+}
+
+.form-group select {
+    width: 135px;
+    padding: 10px;
+    border: 1px solid #E4E6EF;
+    border-radius: 4px;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+input::placeholder {
+    color: #B5B5C3;
+
+}
+
+
+.todo-section {
+    margin: 40px 100px 0px 100px;
+}
+
+.todo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+
+
+}
+
+.todo-header h2 {
+    margin: 0;
+    font-weight: 500;
+    font-size: 22px;
+
+}
+
+.todo-header button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 12px;
+    background-color: #FFE2E5;
+    color: #F1416C;
+    cursor: pointer;
+}
+
+.todo-header button:hover {
+    background-color: #F1416C;
+    color: #FFE2E5;
+
+}
+
+.todo-header button span {
+    font-size: 20px;
+    padding: 5px;
+}
+
+
+.todo-item {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.judul-input {
+    width: 800px;
+}
+
+.btn-delete {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    width: 41.2px;
+    height: 41.2px;
+    padding: 10px;
+    border-radius: 12px;
+    opacity: 1;
+    border: none;
+    background-color: #F1416C;
+    cursor: pointer;
+
+
+}
+
+.btn-delete img {
+    width: 20px;
+    height: auto;
+
+}
+
+.btn-delete:hover {
+    background-color: #e60000;
+
+}
+
+.btn-simpan {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.btn-simpan button {
+    padding: 10px;
+    border-radius: 12px;
+    border: none;
+    color: white;
+    width: 100%;
+    background-color: #049C4F;
+}
