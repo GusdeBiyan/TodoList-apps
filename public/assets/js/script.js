@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", function () {
     axios
         .get("/api/categories")
         .then(function (response) {
-            // Menyimpan data kategori dalam array
             categoryOptions = response.data;
 
             const allSelects = document.querySelectorAll(
@@ -12,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
             );
 
             allSelects.forEach((select) => {
-                select.innerHTML = ""; // Clear existing options
+                select.innerHTML = "";
 
                 categoryOptions.forEach(function (category) {
                     const option = document.createElement("option");
@@ -88,29 +87,25 @@ function addTodoItem() {
 
 document.getElementById("todo").addEventListener("click", function (event) {
     if (event.target.closest(".btn-delete")) {
-        // Dapatkan ID item dari data atribut tombol
         const itemId = event.target
             .closest(".btn-delete")
             .getAttribute("data-id");
 
-        // Konfirmasi penghapusan
         Swal.fire({
-            title: "Are you sure?",
-            text: "This item will be deleted!",
+            title: "Apakah anda yakin?",
+            text: "To do yang dihapus tidak dapat dikembalikan.",
             icon: "warning",
             showCancelButton: true,
-            confirmButtonText: "Yes, delete it!",
-            cancelButtonText: "No, cancel!",
+            confirmButtonText: "Ya, Hapus!",
+            cancelButtonText: "Batal",
         }).then((result) => {
             if (result.isConfirmed) {
-                // Hapus item dari DOM jika konfirmasi diterima
                 const item = document.getElementById(itemId);
                 if (item) {
                     item.remove();
                 }
 
-                // Tampilkan pesan sukses
-                Swal.fire("Deleted!", "Your item has been deleted.", "success");
+                Swal.fire("To do berhasil dihapus", "success");
 
                 updateDeleteButtons();
             }
@@ -121,15 +116,12 @@ document.getElementById("todo").addEventListener("click", function (event) {
 function saveTodos() {
     const form = document.querySelector("form");
 
-    // Periksa apakah form valid
     if (!form.checkValidity()) {
-        // Jika tidak valid, tampilkan pesan kesalahan atau berikan feedback visual
         form.reportValidity();
-        return; // Hentikan eksekusi jika form tidak valid
+        return;
     }
     const todos = [];
 
-    // Mengambil data dari elemen todo-item
     document.querySelectorAll(".todo-item").forEach((item) => {
         const judul = item.querySelector("input[name^='judul']").value;
         const kategori = item.querySelector("select[name^='kategori']").value;
@@ -137,7 +129,6 @@ function saveTodos() {
         todos.push({ judul, kategori });
     });
 
-    // Mengambil data dari input user
     const userData = {
         name: document.getElementById("name").value,
         username: document.getElementById("username").value,
@@ -146,25 +137,25 @@ function saveTodos() {
     console.log(todos);
     console.log(userData);
 
-    // Mengirim data ke server menggunakan axios
     axios
         .post(
-            "/api/tasks", // URL endpoint API
+            "/api/tasks",
             {
-                todos, // Mengirim data todos
-                user: userData, // Mengirim data user
+                todos,
+                user: userData,
             },
             {
                 headers: {
-                    "Content-Type": "application/json", // Mengatur tipe konten
+                    "Content-Type": "application/json",
                     "X-CSRF-TOKEN": document
                         .querySelector('meta[name="csrf-token"]')
-                        .getAttribute("content"), // Menambahkan token CSRF
+                        .getAttribute("content"),
                 },
             }
         )
         .then((response) => {
-            console.log("Data berhasil dikirim:", response.data); // Menampilkan respon jika berhasil
+            console.log("Data berhasil dikirim:", response.data);
+
             Swal.fire({
                 position: "top-end",
                 icon: "success",
@@ -174,18 +165,15 @@ function saveTodos() {
             });
         })
         .catch((error) => {
-            // Handle error
             if (error.response && error.response.status === 422) {
                 const errors = error.response.data.errors;
 
                 if (errors) {
-                    // Combine all error messages into a single string
                     let errorMessages = "";
                     Object.keys(errors).forEach((key) => {
                         errorMessages += `${errors[key].join(", ")}\n`;
                     });
 
-                    // Display the combined error messages
                     Swal.fire({
                         icon: "error",
                         title: "Oops...",
@@ -197,7 +185,6 @@ function saveTodos() {
                     );
                 }
             } else {
-                // Handle other errors or unexpected cases
                 alert("An error occurred. Please try again.");
             }
         });

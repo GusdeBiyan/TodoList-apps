@@ -8,7 +8,7 @@ class StoreUserRequest extends FormRequest
 {
     public function authorize()
     {
-        return true; // Set to false if authorization is required
+        return true;
     }
 
     public function rules()
@@ -20,7 +20,7 @@ class StoreUserRequest extends FormRequest
             'user.email'        => 'required|email|unique:users,email|max:255',
 
             // Validasi untuk todos
-            'todos'             => 'required|array|min:1', // Menjamin bahwa ada setidaknya satu todo
+            'todos'             => 'required|array|min:1',
             'todos.*.judul'     => 'required|string|max:255',
             'todos.*.kategori'  => 'required|string|max:255',
         ];
