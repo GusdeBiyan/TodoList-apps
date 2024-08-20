@@ -97,3 +97,22 @@ Jika Anda mengalami masalah, pastikan untuk memeriksa:
 4. Versi PHP dan MySQL yang digunakan sesuai dengan yang dibutuhkan oleh proyek.
 
 
+## Dokumentasi API
+
+1. Post Data
+
+```bash
+http://localhost:8000/api/tasks
+```
+
+![Screenshot 2024-08-20 091956](https://github.com/user-attachments/assets/e32a78df-e7d6-4014-983b-883e714a028a)
+
+2. Get Categories
+
+```bash
+http://localhost:8000/api/tasks
+```
+
+![Screenshot 2024-08-20 092042](https://github.com/user-attachments/assets/2d4e3ccf-c7cc-4d94-b365-51365f89fb54)
+
+
