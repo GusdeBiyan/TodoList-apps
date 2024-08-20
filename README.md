@@ -20,7 +20,6 @@ Clone repository Laravel ke direktori lokal Anda dengan perintah:
 git clone https://github.com/username/repository.git
 ```
 
-
 ### 2. Navigasi Ke Direktori Proyek
 
 Masuk ke direktori proyek yang telah di-clone:
@@ -36,4 +35,57 @@ Install dependensi PHP dengan Composer:
 ```bash
 composer install
 ```
+
+### 4. Setup File Environment
+
+Salin file .env.example menjadi file .env:
+
+```bash
+cp .env.example .env
+``` 
+
+### 5. Generate Application Key
+
+Generate key aplikasi Laravel:
+
+```bash
+php artisan key:generate
+```
+
+### 6. Konfigurasi Database
+
+Buka file .env dan atur konfigurasi database sesuai dengan ini:
+
+```bash
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=todo-apps
+DB_USERNAME=user_database
+DB_PASSWORD=password_database
+```
+
+### 7. Migrate Database
+
+Jalankan migrasi database untuk menyiapkan struktur tabel:
+
+```bash
+php artisan migrate
+```
+
+Jalankan Seeder untuk mengisi data awal
+
+```bash
+php artisan db:seed
+```
+
+### 10. Jalankan Server Laravel
+
+Jalankan server pengembangan Laravel:
+
+```bash
+php artisan serve
+```
+
+
 
