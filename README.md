@@ -87,5 +87,13 @@ Jalankan server pengembangan Laravel:
 php artisan serve
 ```
 
+### Troubleshooting
+
+Jika Anda mengalami masalah, pastikan untuk memeriksa:
+
+1. XAMPP atau server lokal Anda sudah berjalan dan modul Apache serta MySQL aktif.
+2. File .env sudah dikonfigurasi dengan benar.
+3. Semua dependensi telah diinstal dengan benar.
+4. Versi PHP dan MySQL yang digunakan sesuai dengan yang dibutuhkan oleh proyek.
 
 
